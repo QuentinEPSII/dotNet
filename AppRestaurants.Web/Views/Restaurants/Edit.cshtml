@@ -1,0 +1,70 @@
+﻿@model AppRestaurants.Data.Models.Restaurant
+
+@{
+    ViewData["Title"] = "Modifier un restaurant";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<h4>Restaurant</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <input type="hidden" asp-for="AdresseID" />
+            <div class="form-group">
+                <label asp-for="Nom" class="control-label"></label>
+                <input asp-for="Nom" class="form-control" />
+                <span asp-validation-for="Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telephone" class="control-label"></label>
+                <input asp-for="Telephone" class="form-control" />
+                <span asp-validation-for="Telephone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Details" class="control-label"></label>
+                <input asp-for="Details" class="form-control" />
+                <span asp-validation-for="Details" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adresse.Numero" class="control-label"></label>
+                <input asp-for="Adresse.Numero" class="form-control" />
+                <span asp-validation-for="Adresse.Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adresse.Rue" class="control-label"></label>
+                <input asp-for="Adresse.Rue" class="form-control" />
+                <span asp-validation-for="Adresse.Rue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adresse.CodePostal" class="control-label"></label>
+                <input asp-for="Adresse.CodePostal" class="form-control" />
+                <span asp-validation-for="Adresse.CodePostal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adresse.Ville" class="control-label"></label>
+                <input asp-for="Adresse.Ville" class="form-control" />
+                <span asp-validation-for="Adresse.Ville" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retour à la liste des restaurants</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

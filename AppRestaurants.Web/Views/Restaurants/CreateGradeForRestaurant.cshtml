@@ -1,0 +1,66 @@
+﻿@model AppRestaurants.Data.Models.Restaurant
+
+@{
+    ViewData["Title"] = "Noter un restaurant";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<div>
+    <h4>Restaurant</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+    </dl>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateGradeForRestaurant">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LastGrade.Note" class="control-label"></label>
+                <input required asp-for="LastGrade.Note" class="form-control" />
+                <span asp-validation-for="LastGrade.Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Date de votre visite</label>
+                <input required asp-for="LastGrade.DateDerniereVisite" class="form-control" />
+                <span asp-validation-for="LastGrade.DateDerniereVisite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastGrade.Commentaire" class="control-label"></label>
+                <input required asp-for="LastGrade.Commentaire" class="form-control" />
+                <span asp-validation-for="LastGrade.Commentaire" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="GradesList">Retour à la liste des notes</a>
+</div>
